@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Cadastro_de_Clientes.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista Clientes";
+}
+<h1 style="text-align:center">Clientes</h1>
+
+<table class="table" style="background-color: black!important; color: white!important">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.email
+                </td>
+                <td>
+                    @item.Telefone
+                </td>
+                <td>
+                    @item.Cidade
+                </td>
+                <td>
+                    @item.Estado
+                </td>
+                <td>
+                    @item.Logradouro
+                </td>
+                <td>
+                    @item.Bairro
+                </td>
+                <td>
+                    @item.Numero
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Editar" asp-route-id="@item.Id" style="color: white!important">Editar</a>
+                    <a class="btn btn-outline-info btn-sm" asp-action="Detalhes" asp-route-id="@item.Id" style="color: white!important">Detalhes</a>
+                    <a class="btn btn-outline-danger text-white btn-sm" asp-action="Apagar" asp-route-id="@item.Id" style="color: white!important">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
